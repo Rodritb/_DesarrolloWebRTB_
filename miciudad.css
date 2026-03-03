@@ -1,0 +1,75 @@
+/* Maqueta Moderna - Tarea 3 */
+:root {
+    --primario: #2563eb;
+    --oscuro: #9ba2ad;
+    --fondo: #859cb4;
+    --blanco: #adf6ec;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--fondo);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Navegación mejorada */
+nav {
+    width: 100%;
+    background-color: var(--oscuro);
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(199, 81, 81, 0.1);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--primario);
+}
+
+/* Contenedor tipo "Card" */
+.contenedor {
+    background: var(--blanco);
+    width: 90%;
+    max-width: 800px;
+    margin: 40px 0;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+/* Estilo de Botones */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--primario);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+}
+
+img {
+    border-radius: 50%; /* Imagen circular */
+    border: 5px solid var(--fondo);
+    margin-bottom: 20px;
+}
