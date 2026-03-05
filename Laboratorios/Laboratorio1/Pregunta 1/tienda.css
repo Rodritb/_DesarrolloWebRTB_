@@ -1,0 +1,97 @@
+
+* {
+    margin: 100;
+    padding: 100;
+    box-sizing: border-box; 
+}
+
+
+.body-presentacion {
+    height: 100px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+   
+}
+
+.card {
+    background-color: #ffffff; 
+    width: 350px;
+    padding: 30px; 
+    margin: 20px; 
+    border: 2px solid #3498db; 
+    border-radius: 15px; 
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.skills-list {
+    display: flex; 
+    justify-content: space-around;
+    list-style: none;
+}
+
+.btn-contacto {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+
+}
+
+.btn-contacto:hover { background-color: #2980b9; } 
+
+
+.tienda-header {
+    background-color: #0a69c8; 
+    color: rgb(22, 16, 16);
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 1rem 5%;
+}
+
+.menu-nav ul {
+    display: flex;
+    gap: 100px; 
+    list-style: none;
+}
+
+.menu-nav a { color: rgb(0, 0, 0); text-decoration: none; }
+
+.hero-section {
+    background-color: #edf1f1; 
+    padding: 60px 20px;
+    text-align: center;
+    
+}
+
+.productos-container {
+    display: flex; 
+    justify-content: center;
+    gap: 50px;
+    padding: 30px;
+    background-color: #72bbf0;
+}
+
+.producto-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px; 
+  
+  
+}
+
+.producto-card:hover { 
+    background-color: #fbfbfb; 
+}
+
+.tienda-footer {
+    background-color: #1577d9; 
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
