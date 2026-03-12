@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Operaciones</title>
+    <style>
+        
+        .naranja {
+            color: #070707;
+            border: 2px solid #f67c01;
+        }
+        label {
+            color: #090909;
+            font-weight: bold;
+        }
+        .contenedor {
+            border: 2px solid #F79646;
+            padding: 20px;
+            width: fit-content;
+            margin: 20px;
+        }
+        input.generar {
+            background-color: #F79646;
+            color: rgb(245, 245, 245);
+            border: 2px solid #000;
+            padding: 10px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <form action="tabla.php" method="POST">
+            <label>operación</label>
+            <select name="operacion" class="naranja">
+                <option value="Suma">Suma</option>
+                <option value="Resta">Resta</option>
+                <option value="Multiplicacion">Multiplicación</option>
+                <option value="Division">División</option>
+            </select>
+
+            &nbsp;&nbsp;&nbsp;
+            <label>n</label>
+            <input type="number" name="n" class="naranja" required>
+
+            <br><br>
+            <input type="submit" value="Generar" class="generar">
+        </form>
+    </div>
+
+</body>
+</html>
