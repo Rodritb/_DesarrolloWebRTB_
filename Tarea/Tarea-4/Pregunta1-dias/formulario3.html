@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            border: 1px solid #ee1515;
+            padding: 20px;
+        }
+        form{
+           border: 2px solid #ee1515;
+           padding: 5px;
+           border-radius: 10px;
+           
+        }
+            h1{
+                color: #ee1515;
+            }
+            label{
+                font-size: 20px;
+            }
+            input, button{
+                padding: 5px;
+                margin-top: 10px;
+            }
+    </style>
+</head>
+<body>
+    <h1>Seleccionar día</h1>
+    <form action="dias.php" method="GET">
+        <label>Introduce un número (1 al 7):</label>
+        <input type="number" name="n" min="1" max="7" required>
+        <button type="submit">Mostrar dia</button>
+    </form>
+</body>
+</html>

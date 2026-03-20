@@ -1,0 +1,15 @@
+.rojo { 
+    background-color: red; 
+}
+.amarillo {
+    background-color: yellow; 
+}
+.verde { 
+    background-color: green;
+}
+table { 
+    border-collapse: collapse; width: 100%; 
+}
+td { 
+    border: 1px solid black; height: 30px; 
+}
