@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Estudiante</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            padding: 20px;
+            background-color: rgb(170, 152, 152);
+            border: 1px solid #191818;
+            margin-bottom: 30px;
+        }
+        input[type="text"], input[type="email"], input[type="number"], select, textarea {
+            width: 300px;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: rgb(244, 239, 239);
+            
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Formulario con GET</h2>
+<form action="procesar.php" method="GET">
+    
+    Nombre: <input type="text" name="nombre"><br><br>
+    
+    Correo: <input type="email" name="correo"><br><br>
+    
+    Carrera:
+    <select name="carrera">
+        <option value="Sistemas">Sistemas</option>
+        <option value="Industrial">Industrial</option>
+        <option value="Civil">Civil</option>
+    </select><br><br>
+    
+    Semestre: <input type="number" name="semestre" min="1" max="10"><br><br>
+    
+    Turno:
+    <input type="radio" name="turno" value="Mañana"> Mañana
+    <input type="radio" name="turno" value="Tarde"> Tarde
+    <input type="radio" name="turno" value="Noche"> Noche<br><br>
+    
+    Materias:
+    <input type="checkbox" name="materias[]" value="Programación"> Programación
+    <input type="checkbox" name="materias[]" value="Base de Datos"> Base de Datos
+    <input type="checkbox" name="materias[]" value="Redes"> Redes<br><br>
+    
+    Comentarios:<br>
+    <textarea name="comentarios"></textarea><br><br>
+    
+    <input type="submit" value="Enviar GET">
+</form>
+
+<hr>
+
+<h2>Formulario con POST</h2>
+<form action="procesar.php" method="POST">
+    
+    Nombre: <input type="text" name="nombre"><br><br>
+    
+    Correo: <input type="email" name="correo"><br><br>
+    
+    Carrera:
+    <select name="carrera">
+        <option value="Sistemas">Sistemas</option>
+        <option value="Industrial">Industrial</option>
+        <option value="Civil">Civil</option>
+    </select><br><br>
+    
+    Semestre: <input type="number" name="semestre" min="1" max="10"><br><br>
+    
+    Turno:
+    <input type="radio" name="turno" value="Mañana"> Mañana
+    <input type="radio" name="turno" value="Tarde"> Tarde
+    <input type="radio" name="turno" value="Noche"> Noche<br><br>
+    
+    Materias:
+    <input type="checkbox" name="materias[]" value="Programación"> Programación
+    <input type="checkbox" name="materias[]" value="Base de Datos"> Base de Datos
+    <input type="checkbox" name="materias[]" value="Redes"> Redes<br><br>
+    
+    Comentarios:<br>
+    <textarea name="comentarios"></textarea><br><br>
+    
+    <input type="submit" value="Enviar POST">
+</form>
+
+</body>
+</html>
