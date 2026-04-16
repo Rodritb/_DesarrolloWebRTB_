@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pregunta 1 - Básico</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            font-family: sans-serif;
+        }
+        .contenedor {
+            width: 900px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fila1 {
+            background-color: #1A3C40;
+            color: white;
+            display: flex;
+            align-items: center; 
+            padding: 10px;
+        }
+
+        .fila2 {
+            background-color: #16A085;
+            color: white;
+            display: flex;
+            justify-content: center; 
+            padding: 5px;
+        }
+ 
+        nav {
+            display: flex;
+            background-color: #16A085;
+        }
+
+        .opcion {
+            flex: 1; 
+            text-align: center;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-right: 1px solid white;
+        }
+
+        .opcion:hover {
+            background-color: #0ee9bd;
+        }
+
+        main {
+            display: flex;
+            min-height: 250px;
+            
+        }
+
+        .columna {
+            flex: 1; 
+            padding: 15px;
+        }
+
+        .c1, .c3 { 
+            background-color: #E8F8F5;
+            color:#0ee9bd; 
+        }
+        .c2 {
+            background-color: #D1F2EB; 
+            color:#0ee9bd;
+        }
+
+        .c3 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            text-align: center;
+            color:#102e29;
+        }
+
+        footer {
+            background-color: #1A3C40;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <header>
+            <div class="fila1">
+                <img src="imagen/logo.png" alt="logo">
+                <span>UNIVERSIDAD DE SAN FRANCISCO XAVIER</span>
+            </div>
+            <div class="fila2">
+                TECNOLOGÍA Y DESARROLLO WEB – SIS 256
+            </div>
+        </header>
+
+        <nav>
+            <a href="inicio.html" class="opcion">Inicio</a>
+            <a href="pregunta2.html" class="opcion">Pregunta 2</a>
+            <a href="procesar3.php" class="opcion">Pregunta 3</a>
+            <a href="pregunta4.php" class="opcion" style="border-right: none;">Pregunta 4</a>
+        </nav>
+
+        <main>
+            <div class="columna c1">
+                Nombre: Torres Balcera Rodrigo<br>
+                Carrera: Ingeniería de Sistemas<br>
+            </div>
+            <div class="columna c2">
+                CU: 35-5541<br>
+                GitHub: rodritb911<br>
+            </div>
+            <div class="columna c3">
+                Gestión<br>1-2026
+            </div>
+        </main>
+
+        <footer>
+            <span>© USFX 2026</span>
+            <span>Primer Parcial</span>
+        </footer>
+    </div>
+
+</body>
+</html>
