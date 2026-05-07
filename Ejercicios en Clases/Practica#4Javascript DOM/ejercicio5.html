@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cambio de color en lista</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+
+    li {
+      padding: 8px;
+      margin: 5px 0;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      width: 300px;
+    }
+
+    li.seleccionado {
+      border: 2px solid #007bff;
+    }
+
+    #info {
+      color: blue;
+      font-size: 13px;
+      margin-top: 5px;
+    }
+
+    .controles {
+      margin-top: 15px;
+    }
+
+    .controles label {
+      margin-right: 5px;
+    }
+
+    .controles input {
+      padding: 5px;
+      margin-right: 10px;
+    }
+
+    .controles button {
+      padding: 6px 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Cambio de color de fondo en lista</h1>
+
+  <p><strong>Lista de tareas:</strong></p>
+
+  <ul id="lista">
+    <li onclick="seleccionar(this)">Estudiar JavaScript</li>
+    <li onclick="seleccionar(this)">Practicar DOM</li>
+    <li onclick="seleccionar(this)">Hacer ejercicios</li>
+  </ul>
+
+  <p id="info">Elemento seleccionado: ninguno</p>
+
+  <div class="controles">
+    <label>Color:</label>
+    <input type="text" id="color">
+    <button onclick="cambiarColor()">Cambiar color fondo</button>
+  </div>
+
+  <script>
+    let seleccionado = null;
+
+    function seleccionar(elemento) {
+      if (seleccionado != null) {
+        seleccionado.classList.remove("seleccionado");
+      }
+
+      seleccionado = elemento;
+      seleccionado.classList.add("seleccionado");
+
+      document.getElementById("info").textContent =
+        'Elemento seleccionado: "' + seleccionado.textContent + '"';
+    }
+
+    function cambiarColor() {
+      if (seleccionado == null) {
+        alert("Primero haz clic en un elemento de la lista");
+        return;
+      }
+
+      let color = document.getElementById("color").value;
+
+      if (color == "") {
+        alert("Escribe un color primero");
+        return;
+      }
+
+      seleccionado.style.backgroundColor = color;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Estudiantes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .formulario {
+      margin-bottom: 20px;
+    }
+
+    .formulario label {
+      margin-right: 5px;
+    }
+
+    .formulario input {
+      margin-right: 10px;
+      padding: 5px;
+    }
+
+    .formulario button {
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #total {
+      color: red;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th {
+      background-color: #007bff;
+      color: white;
+      padding: 8px;
+      border: 1px solid #ccc;
+    }
+
+    td {
+      padding: 8px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
+    .mayor {
+      background-color: yellow;
+      font-weight: bold;
+    }
+
+    .btn-eliminar {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sistema de Registro de Estudiantes</h1>
+
+  <div class="formulario">
+    <label>Nombre:</label>
+    <input type="text" id="nombre" placeholder="Nombre">
+
+    <label>Edad:</label>
+    <input type="number" id="edad" placeholder="Edad">
+
+    <label>Carrera:</label>
+    <input type="text" id="carrera" placeholder="Carrera">
+
+    <button onclick="agregar()">Agregar</button>
+  </div>
+
+  <p id="total">Total estudiantes registrados: 0</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>Carrera</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody id="cuerpo">
+    </tbody>
+  </table>
+
+  <script>
+    let total = 0;
+
+    function agregar() {
+      let nombre = document.getElementById("nombre").value;
+      let edad = document.getElementById("edad").value;
+      let carrera = document.getElementById("carrera").value;
+
+      if (nombre == "" || edad == "" || carrera == "") {
+        alert("Por favor llena todos los campos");
+        return;
+      }
+
+      let fila = document.createElement("tr");
+
+      if (parseInt(edad) > 25) {
+        fila.className = "mayor";
+      }
+
+      let celdaNombre = document.createElement("td");
+      celdaNombre.textContent = nombre;
+
+      let celdaEdad = document.createElement("td");
+      celdaEdad.textContent = edad;
+
+      let celdaCarrera = document.createElement("td");
+      celdaCarrera.textContent = carrera;
+
+      let celdaAccion = document.createElement("td");
+      let boton = document.createElement("button");
+      boton.textContent = "Eliminar";
+      boton.className = "btn-eliminar";
+      boton.onclick = function() {
+        fila.remove();
+        total--;
+        document.getElementById("total").textContent = "Total estudiantes registrados: " + total;
+      };
+
+      celdaAccion.appendChild(boton);
+      fila.appendChild(celdaNombre);
+      fila.appendChild(celdaEdad);
+      fila.appendChild(celdaCarrera);
+      fila.appendChild(celdaAccion);
+
+      document.getElementById("cuerpo").appendChild(fila);
+
+      total++;
+      document.getElementById("total").textContent = "Total estudiantes registrados: " + total;
+
+      document.getElementById("nombre").value = "";
+      document.getElementById("edad").value = "";
+      document.getElementById("carrera").value = "";
+    }
+  </script>
+
+</body>
+</html>

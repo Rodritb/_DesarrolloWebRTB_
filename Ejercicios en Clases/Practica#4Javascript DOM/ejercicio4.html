@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Inspector de Enlaces</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    a {
+      display: block;
+      margin-top: 15px;
+      color: blue;
+    }
+
+    p.info {
+      margin: 3px 0 0 0;
+      font-size: 13px;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Inspector de Enlaces</h1>
+
+  <h3>Mis Enlaces</h3>
+
+  <a href="https://www.google.com">Buscador Google</a>
+  <a href="https://developer.mozilla.org">Documentación MDN</a>
+  <a href="https://www.usfx.bo">Universidad USFX</a>
+
+  <script>
+    let enlaces = document.getElementsByTagName("a");
+
+    for (let i = 0; i < enlaces.length; i++) {
+      let url = enlaces[i].getAttribute("href");
+
+      let parrafo = document.createElement("p");
+      parrafo.className = "info";
+      parrafo.textContent = "Este enlace te lleva a: " + url;
+
+      enlaces[i].parentNode.insertBefore(parrafo, enlaces[i].nextSibling);
+    }
+  </script>
+
+</body>
+</html>

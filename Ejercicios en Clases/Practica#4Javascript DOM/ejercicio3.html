@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Modo Oscuro</title>
+  <style>
+    body {
+      background-color: white;
+      color: black;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    button {
+      display: block;
+      margin: 30px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: black;
+      color: white;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Mi sitio</h1>
+  <p style="text-align: center;">Contenido en color oscuro sobre fondo blanco.</p>
+
+  <button id="btn" onclick="cambiarModo()">Modo Oscuro</button>
+
+  <script>
+    function cambiarModo() {
+      let cuerpo = document.body;
+      let boton = document.getElementById("btn");
+
+      if (cuerpo.style.backgroundColor == "black") {
+        cuerpo.style.backgroundColor = "white";
+        cuerpo.style.color = "black";
+        boton.textContent = "Modo Oscuro";
+      } else {
+        cuerpo.style.backgroundColor = "black";
+        cuerpo.style.color = "white";
+        boton.textContent = "Modo Claro";
+      }
+    }
+  </script>
+
+</body>
+</html>
