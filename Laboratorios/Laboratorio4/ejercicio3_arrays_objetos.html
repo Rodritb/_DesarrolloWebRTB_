@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 80%;
+            height: 40%;
+
+        }
+        table th, table td{
+            border: 1px solid rgb(184, 184, 184);
+            padding: 8px;
+            text-align: start;
+        }
+
+        #resumen1{
+            color: green;
+        }
+
+        #resumen2{
+            color: red;
+        }
+
+        #nombres{
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="tabla">
+    </div>
+
+    <p id="resumen1">
+    </p>
+
+    <p id="resumen2">
+    </p>
+
+    <p id="nombres">   
+    </p>
+
+
+    <script>
+        function Estudiante(nombre, nota1, nota2, nota3) {
+        this.nombre = nombre;
+        this.nota1 = nota1;
+        this.nota2 = nota2;
+        this.nota3 = nota3;
+        }
+
+        Estudiante.prototype.promedio = function() {
+        return ((this.nota1 + this.nota2 + this.nota3) / 3).toFixed(2);
+        };
+        Estudiante.prototype.estado = function() {
+        return parseFloat(this.promedio()) >= 51 ? 'Aprobado' : 'Reprobado';
+        };
+        
+        var estudiantes = [
+        new Estudiante('Ana Lopez', 75, 82, 90),
+        new Estudiante('Luis Rios', 40, 55, 48),
+        new Estudiante('Maria Paz', 88, 92, 85),
+        new Estudiante('Juan Abad', 60, 70, 65),
+        new Estudiante('Sofia Cruz', 30, 45, 50)
+        ];
+        
+        var aprobados = estudiantes.filter(function(e) {
+        return parseFloat(e.promedio()) >= 51;
+        });
+        document.getElementById('resumen1').innerHTML =
+        'Aprobados: ' + aprobados.length + ' de ' + estudiantes.length;
+        
+
+        var reprobados = estudiantes.filter(function(e) {
+        return parseFloat(e.promedio()) < 51;
+        });
+        document.getElementById('resumen2').innerHTML =
+        'Reprobados: ' + reprobados.length + ' de ' + estudiantes.length;
+        
+
+        var nombres = estudiantes.map(function(e) { return e.nombre; });
+        document.getElementById('nombres').textContent = nombres.join(', ');
+        
+
+        var html = '<table border=1><tr style="background-color: #000080; color: white;">'
+        + '<th style= "width: 150px;">Nombre</th><th>Nota1</th>'
+        + '<th>Nota2</th><th>Nota3</th><th>Promedio</th><th>Estado</th></tr>';
+
+        estudiantes.forEach(function(e) {
+        var bg = e.estado()==='Aprobado' ? '#D1FAE5' : '#FEE2E2';
+        html += '<tr style="background:' + bg + '">'
+        + '<td>' + e.nombre + '</td>'
+        + '<td>' + e.nota1 + '</td>'
+        + '<td>' + e.nota2 + '</td>'
+        + '<td>' + e.nota3 + '</td>'
+        + '<td>' + e.promedio() + '</td>'
+        + '<td>' + e.estado() + '</td></tr>';
+        });
+        html += '</table>';
+        document.getElementById('tabla').innerHTML = html;
+        
+        console.log(JSON.stringify(estudiantes[0]));
+    </script>
+</body>
+</html>

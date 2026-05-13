@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1 - JavaScript Básico</title>
+
+    <script>
+        // Función para clasificar la edad de la persona.
+        function clasificar(e) {
+            if (e < 18)
+                return 'Menor de edad';
+            else if (e < 30)
+                return 'Joven';
+            else if (e < 60)
+                return 'Adulto';
+            else
+                return 'Senior';
+        }
+
+        // Función para determinar si un número es par o impar y retornar el resultado como texto.
+        function parImpar(num) {
+            return (num % 2 === 0) ? 'par' : 'impar';
+        }
+
+        // Función para calcular el factorial de un número utilizando un bucle for.
+        function factorial(x) {
+            var f = 1;
+
+            for (var j = 2; j <= x; j++) {
+                f *= j;
+            }
+
+            return f;
+        }
+    </script>
+</head>
+
+<body>
+
+<script>
+    // Solicitar datos al usuario utilizando prompt y almacenar los resultados en variables. 
+    var nombre = prompt('Ingresa tu nombre:');
+
+    // parseInt convierte el texto ingresado a número entero y lo almacena en la variable edad y n. 
+    var edad = parseInt(prompt('Ingresa tu edad:'));
+
+    var n = parseInt(prompt('Número para la tabla:'));
+
+    // Mostrar tabla de multiplicar utilizando document.write para generar una tabla HTML con los resultados de multiplicar el número n por los números del 1 al 10.    
+    document.write('<h2>Tabla de multiplicar del ' + n + '</h2>');
+
+    document.write('<table border="1" cellpadding="5">');
+
+    document.write('<tr>');
+    document.write('<th>Operación</th>');
+    document.write('<th>Resultado</th>');
+    document.write('</tr>');
+
+    // Bucle for para generar la tabla de multiplicar del número n, mostrando la operación y el resultado en cada fila de la tabla. 
+    for (var i = 1; i <= 10; i++) {
+        document.write('<tr>');
+        document.write('<td>' + n + ' x ' + i + '</td>');
+        document.write('<td>' + (n * i) + '</td>');
+        document.write('</tr>');
+    }
+
+    document.write('</table>');
+
+    // Mostrar resultados con alert que incluye el nombre del usuario, su clasificación por edad, el factorial del número n y si n es par o impar.      
+    alert(
+        'Hola ' + nombre +
+        '\nClasificación: ' + clasificar(edad) +
+        '\n' + n + '! = ' + factorial(n) +
+        '\n' + n + ' es ' + parImpar(n)
+    );
+</script>
+
+</body>
+</html>

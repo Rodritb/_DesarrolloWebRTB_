@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2 - DOM</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f2f5; padding: 20px; }
+        
+        #panel { 
+            background-color: #f4e3a3; 
+            padding: 15px; 
+            border: 1px solid #ccc; 
+            margin-bottom: 20px; 
+        }
+
+        #seccion-dinamica { 
+            background-color: #fff; 
+            padding: 15px; 
+            border: 1px solid #ccc; 
+            
+        }
+        
+        .item-dinamico { 
+            border-left: 5px solid #b2beff; 
+            padding-left: 10px; 
+            margin: 5px 0; 
+        }
+        
+        button { cursor: pointer; padding: 5px 10px; }
+        .btn-agregar { background-color: orange; color: white; border: none; }
+        .btn-eliminar { background-color: red; color: white; border: none; }
+        #miImagen { margin-top: 20px; width: 250px; }
+    </style>
+</head>
+<body>
+    <div id="panel">
+        <strong>Panel de Control</strong>
+        <p id="textoColor">Color actual: Amarillo</p>
+        <p id="cont">Clics: 0</p>
+        <button onclick="cambiarColor()">Cambiar Color</button>
+    </div>
+
+    <div id="seccion-dinamica">
+        <p>Agregar párrafos dinámicos:</p>
+        <input type="text" id="txt" placeholder="Escribe algo..." style="width: 60%;">
+        <button class="btn-agregar" onclick="agregarParrafo()">Agregar</button>
+        <button class="btn-eliminar" onclick="eliminarUltimo()">Eliminar</button>
+        
+        <div id="lista">
+            
+        </div>
+    </div>
+
+    <img id="miImagen" src="https://picsum.photos/250" alt="Imagen de ejemplo">
+
+    <script>
+        var colores = ['#f4e3a3','#dfe6e9','#b2beff'];
+        var nombresColores = ['Amarillo', 'Gris', 'Azul'];  
+        var colorIdx = 0, contador = 0;
+
+        function cambiarColor() {
+            colorIdx = (colorIdx + 1) % colores.length;
+            document.getElementById('panel').style.backgroundColor = colores[colorIdx];
+            document.getElementById('textoColor').innerHTML = 'Color actual: ' + nombresColores[colorIdx];
+            contador++;
+            document.getElementById('cont').innerHTML = 'Clics: ' + contador;
+        }
+
+        function agregarParrafo(){
+            var txt = document.getElementById("txt").value;
+            if (txt.trim() === ''){
+                alert("Escribe algo en el campo de texto");
+                return;
+            }
+            var p = document.createElement("p");
+            p.textContent = txt;
+            p.setAttribute("class", "item-dinamico");
+            document.getElementById("lista").appendChild(p);
+            document.getElementById("txt").value = '';
+        }
+
+        function eliminarUltimo(){
+            var lista = document.getElementById("lista");
+            var items = lista.getElementsByClassName("item-dinamico");
+            if (items.length > 0) {
+                lista.removeChild(items[items.length - 1]);
+            } else {
+                alert("No hay elementos para eliminar.");
+            }
+        }
+
+        window.onload = function(){
+            document.getElementById("miImagen").addEventListener("mouseover", function(){
+                this.style.border = '3px solid red';
+            });
+            document.getElementById("miImagen").addEventListener("mouseout", function(){
+                this.style.border = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
